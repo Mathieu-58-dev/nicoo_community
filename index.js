@@ -2,8 +2,6 @@
 
 //// Language de programation : JS
 
-////// A destination de la communauté de NICOO (Youtuber 100K+) ; (https://discord.gg/nicoo) Serveur vérifié par les developpeurs Discord !
-
 const Discord = require ("discord.js");
 const bot = new Discord.Client();
 const prefix = "!";
