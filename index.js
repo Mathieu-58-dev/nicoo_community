@@ -343,7 +343,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
     };
 
     if (msg.content === (prefix + "Twitter")||(msg.content === (prefix + "twitter"))||(msg.content === (prefix + "twitter nicoo"))||(msg.content === (prefix + "twitter NICOO"))||(msg.content === (prefix + "twitter NICOO"))) {
-        msg.reply ("Tu n'as pas encore le Twitter de NICOO ?? Bah aller là, Va te follow !! https://twitter.com/NicooYTB")
+        msg.reply ("Tu n'as pas encore le Twitter de NICOO ?? Bah aller là, Vas te follow !! https://twitter.com/NicooYTB")
         console.log (`Lien du Twitter de NICOO demandée par ${msg.author.id}`)
     };
 
