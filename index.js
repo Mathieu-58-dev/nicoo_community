@@ -86,7 +86,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
         fields: [{
            
             name: prefix + "pc",
-            value: "Obtenez le grade **PC** !(Joueur Fortnite sur PC)"
+            value: "Obtenez le grade **PC** ! (Joueur Fortnite sur PC)"
         },
         {
             name: prefix + "ps4",
@@ -198,7 +198,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
         fields: [{
            
             name: prefix2 + "pc",
-            value: "Retirez vous le grade **PC** !(Joueur Fortnite sur PC)"
+            value: "Retirez vous le grade **PC** ! (Joueur Fortnite sur PC)"
         },
         {
             name: prefix2 + "ps4",
