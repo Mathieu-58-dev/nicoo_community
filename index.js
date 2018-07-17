@@ -18,6 +18,13 @@ bot.on("ready", () => {
     console.log (`${bot.user.tag} est prêt !`)
 });
 
+bot.on("guildMemberAdd", member => {
+    let regles = member.guild.channels.find('id', "466169480364425216") //id channel règlement
+    let channel = member.guild.channels.find("id", "466158304813383681") //id channel bienvenue
+    channel.send (`:wave: Bienvenue ${member} sur le serveur de NICOO ! :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} !` + "```\n```")
+    console.log (`${member} à rejoint le serveur !`)
+});
+
 bot.on("message", msg => {
 
 var cont = msg.content.slice(prefix.length).split(" ");
