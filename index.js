@@ -1,4 +1,4 @@
-//Bot développé par @Mathieu#7173
+//Bot développé par @Mathieu#7183
 
 //// Language de programation : JS
 
@@ -353,7 +353,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
     };
 
     if (msg.content === (prefix + "créateur")||(msg.content === (prefix + "createur"))||(msg.content === (prefix + "Créateur"))||(msg.channel === (prefix + "Createur"))) {
-        msg.reply ("**Bot entièrement développé par Mathieu#7173**")
+        msg.reply ("**Bot entièrement développé par Mathieu#7183**")
     }
 
 //Fin du code
