@@ -314,7 +314,8 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
                 },
                 {
                   name: prefix + "Twitter",
-                  value: "https://twitter.com/NicooYTB"
+                  value: "https://twitter.com/nicoo_off
+                    "
                 },
                 {
                     name: prefix + "Instagram",
@@ -343,7 +344,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
     };
 
     if (msg.content === (prefix + "Twitter")||(msg.content === (prefix + "twitter"))||(msg.content === (prefix + "twitter nicoo"))||(msg.content === (prefix + "twitter NICOO"))||(msg.content === (prefix + "twitter NICOO"))) {
-        msg.reply ("Tu n'as pas encore le Twitter de NICOO ?? Bah aller là, Vas te follow !! https://twitter.com/NicooYTB")
+        msg.reply ("Lien du Twitter juste ici : https://twitter.com/nicoo_off")
         console.log (`Lien du Twitter de NICOO demandée par ${msg.author.id}`)
     };
 
