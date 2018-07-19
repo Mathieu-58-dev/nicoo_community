@@ -314,7 +314,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
                 },
                 {
                   name: prefix + "Twitter",
-                  value: "https://twitter.com/nicoo_off
+                  value: "https://twitter.com/nicoo_off"
                     "
                 },
                 {
