@@ -14,7 +14,7 @@ bot.login (process.env.BOT_TOKEN);
 //Connection et statut de jeu
 
 bot.on("ready", () => {
-    bot.user.setActivity (`!aide | ${guilds.members.size} utilisateurs`);
+    bot.user.setActivity (`!aide | ${guild.members.size} utilisateurs`);
     console.log (`${bot.user.tag} est prêt !`);
 });
 
