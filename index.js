@@ -19,7 +19,7 @@ bot.on("ready", () => {
 });
 
 bot.on("guildMemberAdd", member => {
-    if (member.guild.id === "464383662956216321") {
+    if (member.guild.id === "277543113302736898") {
         let regles = member.guild.channels.find('id', "335759570775441408"); //id channel règlement
         let channel = member.guild.channels.find("id", "414468712754577428"); //id channel bienvenue
         channel.send (`:wave: Bienvenue ${member} sur le serveur de NICOO ! :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} !` + "```\n```");
