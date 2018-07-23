@@ -388,7 +388,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
                 },
                 {
                     name: prefix + "Instagram",
-                    value: "https://www.instagram.com/nicoo_off/"
+                    value: "https://www.instagram.com/nicoartr/"
                 },
                 {
                     name: prefix + "Créateur",
@@ -422,7 +422,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
     };
 
     if (msg.content === (prefix + "insta")||(msg.content === (prefix + "Insta"))||(msg.content === (prefix + "Instagram"))||(msg.content === (prefix + "instagram"))||(msg.content === (prefix + "instagram nicoo"))) {
-        msg.reply ("Instagram de NICOO ici : https://www.instagram.com/nicoo_off/")
+        msg.reply ("Instagram de NICOO ici : https://www.instagram.com/nicoartr/")
         console.log (`Lien du Instagram de NICOO demandée par ${msg.author.id}`)
     };
 
