@@ -97,7 +97,7 @@ var args = cont.slice(1);
             },
             {
                 name: prefix + "modération",
-                value: `Cette commande affichera les commandes de modération. **(Rôle requis : "Modérateur Discord")`
+                value: `Cette commande affichera les commandes de modération. **(Rôle requis : "Modérateur Discord")**`
             }
             ],
             timestamp: new Date(),
