@@ -14,7 +14,7 @@ bot.login (process.env.BOT_TOKEN);
 //Connection et statut de jeu
 
 bot.on("ready", () => {
-    bot.user.setActivity (`!aide | ${bot.users.size} utilisateurs`);
+    bot.user.setActivity (`!aide | ${bot.guilds.size} utilisateurs`);
     console.log (`${bot.user.tag} est prêt !`);
 });
 
@@ -31,7 +31,7 @@ bot.on("guildMemberAdd", member => {
         let infos = member.guild.channels.find("id", "468744485036228608")
         let channel = member.guild.channels.find("id", "469525608922349575") //id channel bienvenue
         let autorole = member.guild.roles.find("id", "466962327464443906")
-        channel.send (`:wave: Bienvenue ${member} sur le serveur de NICOO ! :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} et ${infos} !` + "```\n```")
+        channel.send (`:wave: Bienvenue ${member} sur le serveur Public Test **Nicoo Community** ! :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} et ${infos} !` + "```\n```")
         member.addRole (autorole)
         console.log (`${member} à rejoint le serveur Public test du bot !`)       
     };
