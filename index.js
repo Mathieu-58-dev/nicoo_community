@@ -159,7 +159,7 @@ const XBOX = msg.guild.roles.find ("id", "466208324241850388")
 const Switch = msg.guild.roles.find ("id", "461210587188166657")
 const Téléphone = msg.guild.roles.find ("id", "466208425508864010")
 const NotifVidéo = msg.guild.roles.find ("id", "466259636815790091")
-const NotifLive = msg.guild.roles.find ("id", "466259842332491788")
+const NotifLive = msg.guild.roles.find ("name", "Notif Live")
 const NotifTwitter = msg.guild.roles.find ("id", "466259754256302091")
 
 
@@ -224,7 +224,7 @@ const NotifTwitter = msg.guild.roles.find ("id", "466259754256302091")
     };  
 
     if (msg.content === (prefix + "Live Notif")||(msg.content === (prefix + "live notif"))||(msg.content === (prefix + "notif live"))||msg.content === prefix + "Notif Live") {
-        if (!msg.member.roles.find("id", "466259842332491788")){
+        if (!msg.member.roles.find("name", "Notif Live")){
             msg.member.addRole (NotifLive)
             msg.reply (":white_check_mark: Rôle ajouté : Notif Live ! Vous serez désormais avertis lorsque NICOO commencera un live !")
         }
@@ -349,7 +349,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
 };
 
     if (msg.content === (prefix2 + "Live Notif")||(msg.content === (prefix2 + "live notif"))||(msg.content === (prefix2 + "notif live"))||msg.content === prefix2 + "Notif Live") {
-        if (msg.member.roles.find("id", "466259842332491788")) {
+        if (msg.member.roles.find("name", "Notif Live")) {
             msg.member.removeRole (NotifLive)
             msg.reply (":white_check_mark: Rôle retiré : Notif Live ! Vous ne serez plus avertis lorsque NICOO commencera un live !")
         }
