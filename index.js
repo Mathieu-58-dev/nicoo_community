@@ -409,7 +409,7 @@ if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(ms
         msg.reply (`Lien du discord "Nicoo Commu Public Test" ici : https://discord.gg/Zj4DbkE`)
     }
 
-    const mododiscord = msg.member.roles.find("name", "📕 Modérateur Discord")
+    const mododiscord = msg.member.guild.roles.find("name", "📕 Modérateur Discord")
     
     if (msg.content.startsWith (prefix + "sondage")){
         if (mododiscord) {
