@@ -479,7 +479,6 @@ function flash(msg, delay = 2000) {
 
 if (msg.content.startsWith (prefix + `ban`)) {
     if (mododiscord) {
-        if (msg.guild.members.find("id", "466960761747669002").hasPermission("BAN_MEMBERS")) { //467988311172972545
         if (args[0] == firstMentioned) {
             if (msg.guild.member(firstMentioned).bannable) { 
                 if (args[1] !== undefined) {
@@ -507,10 +506,6 @@ if (msg.content.startsWith (prefix + `ban`)) {
         else {
             msg.reply ("Il faut que tu mentionnes la personne pour que je le ban.")
         }
-    }
-    else {
-        msg.reply("Je n'ai pas la permission : Bannir des membres")
-    }
     }
     else {
         msg.reply (`:x: Tu n'as pas le rôle **"Modérateur Discord"**`)
