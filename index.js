@@ -11,7 +11,7 @@ const fs = require('fs')
 
 //token
 
-bot.login ("NDY2OTYwNzYxNzQ3NjY5MDAy.DjOIFw.ae_mHKY8L8aCfPneob7MKDtz2RY"); //process.env.BOT_TOKEN
+bot.login (""); //process.env.BOT_TOKEN
 
 //Connection et statut de jeu
 
