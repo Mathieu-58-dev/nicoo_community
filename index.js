@@ -16,7 +16,7 @@ bot.login (process.env.BOT_TOKEN);
 //Connection et statut de jeu
 
 bot.on("ready", () => {
-    bot.user.setActivity(`la communauté ! | Afficher l'aide : !aide`, {type: 'WATCHING'});
+    bot.user.setActivity(`la communauté ! | Afficher l'aide : !!aide`, {type: 'WATCHING'});
     console.log (`Bot connecté.`);
 });
 bot.on("message", msg => {
