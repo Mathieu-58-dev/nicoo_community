@@ -41,158 +41,14 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase()
 
     let cmd = bot.commands.get(command + ".js")
-    if (cmd) cmd.run(bot, prefix, args, msg, flash);
+    if (cmd) cmd.run(bot, prefix, args, msg, flash, créateurbot); //else msg.reply("Commande inconnue, écris `"+ prefix + "aide` pour afficher l'aide :wink:").then(msg => flash(msg, 3000))
 
     var firstMentioned = msg.mentions.users.first();
 
-//COMMANDE AIDE\\
-
-    if (msg.content === (prefix + "aide")) {
-        msg.channel.send ({embed: {
-            color: 14525541,
-            title: "Page d'aide du bot !",
-           description: ":arrow_down: **Obtenez toutes les commandes du bot. **:arrow_down:",
-          fields: [{
-
-              name: prefix + "avatar",
-              value: "Cette commande affichera votre avatar Discord. (Votre Photo de Profil)"
-            },
-            {
-              name: prefix + "classement",
-              value: "Cette commande affichera le classement du serveur. (!rank avec MEE6)"
-            },
-            {
-                name: prefix + "ping",
-                value: "Cette commande affichera le ping du bot."
-            },
-            {
-                name: prefix + "suggestion",
-                value: `Cette commande vous permettera de faire part de votre suggestion pour le serveur.`
-            },
-            {
-                name: prefix + "rôles",
-                value: "Cette commande affichera la page d'aide d'attribution et de retrait de rôles"
-            },
-            {
-                name: prefix + "infos",
-                value: "Cette commande affichera les informations de NICOO."
-            },
-            {
-                name: prefix + "modération",
-                value: `Cette commande affichera les commandes de modération. **(Rôle requis : "Modérateur Discord")**`
-            }
-            ],
-            timestamp: new Date(),
-            footer: {
-              text: `Bot créé par ${créateurbot} -> Pour NICOO. || Page d'aide générale`
-            }
-          }
-        });
-    };
-
-//Commandes pour donner des rôles
-
-if (msg.content === (prefix + "roles")||(msg.content === (prefix + "role"))||(msg.content === (prefix + "rôles"))|(msg.content === (prefix + "rôle"))) {
-    msg.channel.send ({embed: {
-        color: 14525541,
-        title: "Rôles à vous attribuer / retirer vous même.",
-        description: ":arrow_down:  **En effectuant les commandes ci-dessous, vous allez pouvoir vous attribuer / vous retirer des rôles**  :arrow_down:",
-        fields: [{
-                    name: prefix + "pc",
-                    value: "Obtenez le grade **PC** ! (Joueur Fortnite sur PC)"
-        },
-        {           name: prefix + "ps4",
-                    value: "Obtenez le grade **PS4** ! (Joueur Fortnite sur PS4)"
-        },
-        {           name: prefix + "xbox",
-                    value: "Obtenez le grade **XBOX** ! (Joueur Fortnite sur XBOX)"
-        },
-        {           name: prefix + "switch",
-                    value: "Obtenez le grade **Switch** ! (Joueur Fortnite sur Switch)"
-        },
-        {           name: prefix + "téléphone",
-                    value: "Obtenez le grade **Téléphone** ! (Joueur Fortnite sur Téléphone)"
-        },
-        {           name: prefix + "Notif Vidéo",
-                    value: "Obtenez le grade **Notif Vidéo** ! (Vous serez notifié lorsque NICOO sortira une Vidéo !) "
-        },
-        {           name: prefix + "Notif Live",
-                    value: "Obtenez le grade **Notif Live** ! (Vous serez notifié lorsque NICOO commencera un live !)"
-        },
-        {           name: prefix + "Notif Twitter",
-                    value: "Obtenez le grade **Notif Twitter** ! (Vous serez notifié lorsque NICOO aura posté un tweet !)"
-        }],
-        timestamp: new Date(),
-        footer: { text: `Bot créé par ${créateurbot} -> Pour NICOO.` }
-      }
-    });
-};
-
-const PC = msg.guild.roles.find ("id", "466208062298914826") //id serv officiel : 466208062298914826
-const PS4 = msg.guild.roles.find ("id", "466208170428334106") //id serv officiel : 466208170428334106
-const XBOX = msg.guild.roles.find ("id", "466208324241850388") //id serv officiel : 466208324241850388
-const Switch = msg.guild.roles.find ("id", "461210587188166657") //id serv officiel : 461210587188166657
-const Téléphone = msg.guild.roles.find ("id", "466208425508864010") //id serv officiel : 466208425508864010
-const NotifVidéo = msg.guild.roles.find ("id", "466259636815790091") //id serv officiel : 466259636815790091
-const NotifLive = msg.guild.roles.find ("id", "466259943473807361") //id serv officiel : 466259943473807361
-const NotifTwitter = msg.guild.roles.find ("id", "466259754256302091") //id serv officiel : 466259754256302091
-
-
-    if (msg.content === (prefix + "pc")||(msg.content === (prefix + "PC"))) {
-        if (!msg.member.roles.has("466208062298914826")) {
-            msg.member.addRole (PC)
-            msg.reply (":white_check_mark: Rôle ajouté : PC, **Bon jeu !**")
-        }
-        else {
-            msg.member.removeRole (PC)
-            msg.reply (":white_check_mark: Rôle retiré : PC")
-
-        }
-    };
-
-    if (msg.content === (prefix + "ps4")||(msg.content === (prefix + "PS4"))) {
-        if (!msg.member.roles.has("466208170428334106")) {
-            msg.member.addRole (PS4)
-            msg.reply (":white_check_mark: Rôle ajouté : PS4, **Bon jeu !**")
-        }
-        else {
-            msg.member.removeRole (PS4)
-            msg.reply (":white_check_mark: Rôle retiré : PS4")
-        }
-    };
-
-    if (msg.content === (prefix + "xbox")||(msg.content === (prefix + "XBOX"))) {
-        if (!msg.member.roles.has("466208324241850388")) {
-            msg.member.addRole (XBOX)
-            msg.reply (":white_check_mark: Rôle ajouté : XBOX, **Bon jeu !**")
-        }
-        else {
-            msg.member.removeRole (XBOX)
-            msg.reply (":white_check_mark: Rôle retiré : XBOX")
-        }
-    };
-
-    if (msg.content === (prefix + "switch")||(msg.content === (prefix + "SWITCH"))) {
-        if (!msg.member.roles.has("461210587188166657")) {
-            msg.member.addRole (Switch)
-            msg.reply (":white_check_mark: Rôle ajouté : Switch, **Bon jeu !**")
-        }
-        else {
-            msg.member.removeRole (Switch)
-            msg.reply (":white_check_mark: Rôle retiré : Switch")
-        }
-    };
-
-    if (msg.content === (prefix + "tel")||(msg.content === (prefix + "téléphone"))||(msg.content === (prefix + "telephone"))||(msg.content === (prefix + "TELEPHONE"))) {
-        if (!msg.member.roles.has("466208425508864010")) {
-            msg.member.addRole (Téléphone)
-            msg.reply (":white_check_mark: Rôle ajouté : Téléphone, **Bon jeu !**")
-        }
-        else {
-            msg.member.removeRole (Téléphone)
-            msg.reply (":white_check_mark: Rôle retiré : Téléphone")
-        }
-    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+const NotifVidéo = msg.guild.roles.find("id", "466259636815790091") //id serv officiel : 466259636815790091
+const NotifLive = msg.guild.roles.find("id", "466259943473807361") //id serv officiel : 466259943473807361
+const NotifTwitter = msg.guild.roles.find("id", "466259754256302091") //id serv officiel : 466259754256302091
 
     if (msg.content === (prefix + "Vidéo Notif")||(msg.content === (prefix + "video notif"))||(msg.content === (prefix + "notif video"))||msg.content === prefix + "Notif Vidéo") {
         if (!msg.member.roles.has("466259636815790091")){
@@ -226,76 +82,10 @@ const NotifTwitter = msg.guild.roles.find ("id", "466259754256302091") //id serv
             msg.reply (":white_check_mark: Rôle retiré : Notif Twitter ! Vous ne serez plus notifié lorsque NICOO postera un nouveau Tweet !")
         }
     };
-
-//infos
-
-    if (msg.content === (prefix + "infos")||(msg.content === (prefix + "info"))) {
-        msg.channel.send ({embed: {
-            color: 14525541,
-            description: ":arrow_down:  **Retrouvez toutes les informations de NICOO ci-dessous**  :arrow_down:",
-            fields: [{
-                        name: "Discord",
-                        value: "https://discord.gg/nicoo"
-                },
-                {       name: "Youtube",
-                        value: "https://www.youtube.com/channel/UCITUWtKtOrpGuFT-iADXEAQ"
-                },
-                {       name: "Twitter",
-                        value: "https://twitter.com/nicoo_off"
-                },
-                {       name: "Instagram",
-                        value: "https://www.instagram.com/nicoo_off/"
-                },
-                {       name: "Twitch",
-                        value: "https://twitch.tv/nicoo_off"
-                },
-                {       name: prefix + "Créateur",
-                        value: `Bot développé par ${créateurbot}`
-                }
-            ],
-            timestamp: new Date(),
-            footer: {
-              text: `Bot créé par ${créateurbot} -> Pour NICOO.`
-            }
-          }
-        });
-    };
 //Modération
 
 const logs = msg.guild.channels.find("id", "420321529612730368");
 var raison = "Aucune raison"
-function flash(msg, delay = 1500) { // msg est any car la fonction ne peux pas connaitre le type du parametre vu qu'il n'est pas défini
-  setTimeout(() => msg.delete(), delay)
-}
-  if (msg.content === (prefix + "modération")) {
-      if (msg.member.permissions.has('MANAGE_CHANNELS')) {
-          msg.channel.send ({embed:{
-              color: 14525541,
-              title: "Page de modération !",
-              description: ":arrow_down:  **__Commandes de modération__**  :arrow_down:",
-              fields: [{    name: prefix + "ban",
-                            value: "Permet de ban une personne."
-                    },
-                    {       name: prefix + "userinfo",
-                            value: "Permet d'obtenir des infos sur un membre."
-                    },
-                    {       name: prefix + "serverinfo",
-                            value: "Permet d'obtenir des infos sur le serveur."
-                    },
-                    {       name: prefix + "sondage",
-                            value: `Utilisez cette commande pour faire des sondages.`
-                    },
-                    {       name: prefix + "clear",
-                            value: "Permet de clear un nombre spécifique de messages"
-                    }
-          ],
-          }})
-      }
-      else {
-          msg.reply (`:x: **Rôle requis : "Modérateur Discord"**`)
-      }
-  }
-
 if (msg.content.startsWith (prefix + `ban`)) {
   if (msg.member.permissions.has('MANAGE_CHANNELS')) {
       if (args[0] == firstMentioned) {
@@ -429,7 +219,6 @@ else {
     msg.reply('Permissions insuffisantes')
     }
 }
-
 });
 
 //.then(msg => flash(msg, 3000))
@@ -441,6 +230,7 @@ bot.on("guildMemberAdd", member => {
     channel.send (`:wave: Bienvenue ${member} sur le serveur de ${member.guild.name} ! :tada: **Membre n°${member.guild.memberCount + 1}** :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} !` + "```\n```");
     console.log (`${member} à rejoint le serveur officiel de NICOO !`);
     let bienvenue = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
     .setColor("0xf4e541")
     .setThumbnail(member.user.avatarURL)
     .setTitle(`Un membre à rejoint le serveur : ${member.user.username}`)
@@ -453,6 +243,7 @@ bot.on("guildMemberAdd", member => {
 bot.on('guildMemberRemove', member => {
     let logsremove = member.guild.channels.find("id", "420321529612730368")
     let remove = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
     .setColor("0xf4e541")
     .setThumbnail(member.user.avatarURL)
     .setTitle(`Un membre est parti : ${member.user.username}`)
