@@ -43,12 +43,24 @@ bot.on("message", async msg => {
     let cmd = bot.commands.get(command + ".js")
     if (cmd) cmd.run(bot, prefix, args, msg, flash, créateurbot); //else msg.reply("Commande inconnue, écris `"+ prefix + "aide` pour afficher l'aide :wink:").then(msg => flash(msg, 3000))
 
-    var firstMentioned = msg.mentions.users.first();
+    var firstMentioned = msg.mentions.members.first();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-const NotifVidéo = msg.guild.roles.find("id", "466259636815790091") //id serv officiel : 466259636815790091
-const NotifLive = msg.guild.roles.find("id", "466259943473807361") //id serv officiel : 466259943473807361
-const NotifTwitter = msg.guild.roles.find("id", "466259754256302091") //id serv officiel : 466259754256302091
+const SoutienCommunity = msg.guild.roles.find("id", "485765048124440578")
+const NotifVidéo = msg.guild.roles.find("id", "466259636815790091")
+const NotifLive = msg.guild.roles.find("id", "466259943473807361")
+const NotifTwitter = msg.guild.roles.find("id", "466259754256302091")
+
+    if (msg.content === (prefix + "soutien community")) {
+        if (!msg.member.roles.has("485765048124440578")) {
+            msg.member.addRole(SoutienCommunity)
+            msg.reply(":white_check_mark: Rôle ajouté : Soutien Community ! Merci de soutenir le projet, vous serez donc notifiés dès nouveautés !")
+        }
+        else {
+            msg.member.removeRole(SoutienCommunity)
+            msg.reply(":white_check_mark: Rôle retiré : Soutien Community, triste de te voir ne plus soutenir le projet :cry:")
+        }
+    }
 
     if (msg.content === (prefix + "Vidéo Notif")||(msg.content === (prefix + "video notif"))||(msg.content === (prefix + "notif video"))||msg.content === prefix + "Notif Vidéo") {
         if (!msg.member.roles.has("466259636815790091")){
@@ -104,7 +116,7 @@ if (msg.content.startsWith (prefix + `ban`)) {
                 .setThumbnail(firstMentioned.avatarURL)
                 .setTimestamp(new Date())
                 .addField("Par :", msg.author.toString(), true)
-                .addField("Membre Banni :", firstMentioned.username + "#" + firstMentioned.discriminator, true)
+                .addField("Membre Banni :", firstMentioned.user.username + "#" + firstMentioned.user.discriminator, true)
                 .addField("Raison :", raison, true)
 
             logs.send(embed1)
@@ -224,15 +236,14 @@ else {
 //.then(msg => flash(msg, 3000))
 
 bot.on("guildMemberAdd", member => {
-    let logs = member.guild.channels.find("id", "420321529612730368")
+      let logs = member.guild.channels.find("id", "420321529612730368")
     let regles = member.guild.channels.find('id', "335759570775441408"); //id channel règlement
     let channel = member.guild.channels.find("id", "414468712754577428"); //id channel bienvenue
     channel.send (`:wave: Bienvenue ${member} sur le serveur de ${member.guild.name} ! :tada: **Membre n°${member.guild.memberCount + 1}** :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} !` + "```\n```");
-    console.log (`${member} à rejoint le serveur officiel de NICOO !`);
     let bienvenue = new Discord.RichEmbed()
-    .setAuthor(member.user.username, member.user.avatarURL)
+    .setAuthor(member.user.username, member.user.displayAvatarURL)
     .setColor("0xf4e541")
-    .setThumbnail(member.user.avatarURL)
+    .setThumbnail(member.user.displayAvatarURL)
     .setTitle(`Un membre à rejoint le serveur : ${member.user.username}`)
     .setDescription(`Nom : **${member.user.username}#${member.user.discriminator}**\n\nId : **${member.user.id}**`)
     .setFooter("Date :")
@@ -243,9 +254,9 @@ bot.on("guildMemberAdd", member => {
 bot.on('guildMemberRemove', member => {
     let logsremove = member.guild.channels.find("id", "420321529612730368")
     let remove = new Discord.RichEmbed()
-    .setAuthor(member.user.username, member.user.avatarURL)
+    .setAuthor(member.user.username, member.user.displayAvatarURL)
     .setColor("0xf4e541")
-    .setThumbnail(member.user.avatarURL)
+    .setThumbnail(member.user.displayAvatarURL)
     .setTitle(`Un membre est parti : ${member.user.username}`)
     .setDescription(`Nom : **${member.user.username}#${member.user.discriminator}**\n${member.user.toString()}\n\nId : **${member.user.id}**`)
     .setFooter("Date :")
