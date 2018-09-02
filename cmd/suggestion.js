@@ -3,6 +3,7 @@ module.exports.run = async (bot, prefix, args, msg, flash) => {
             msg.channel.send("Impossible d'envoyer la suggestion ! Il n'y a pas d'arguments après la commande !")
         }
         else {
+             msg.delete()
             let suggestionchannel = msg.guild.channels.find("id", "453611739276378123")
             suggestionchannel.send({embed:{
                 fields: [{
