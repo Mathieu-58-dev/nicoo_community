@@ -19,7 +19,7 @@ module.exports.run = async (Discord, bot, prefix, args, msg, flash, créateurbot
     
     if (!username) return msg.reply("Merci d'indiquer votre pseudo");
     
-    let data = fortnite.user(username, plateform).then(async data => {
+    let dataaa = fortnite.user(username, plateform).then(async data => {
         let stats = data.stats;
         let lifetime = stats.lifetime;
     
