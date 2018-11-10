@@ -29,7 +29,9 @@ module.exports = class wordsblacklist {
         else {
         msg.delete()
         msg.channel.send(`:rage: Merci d'utiliser un meilleur langage ! ${msg.author.toString()} :rage:`)
-        .then(msg => flash(msg, 3000))
+        .then(message => {
+            message.delete(1500)
+        })
         .catch(console.error)
     
     }
