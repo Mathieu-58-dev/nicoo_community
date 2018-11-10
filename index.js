@@ -149,6 +149,10 @@ bot.on('error', err => {
 
 bot.login(process.env.BOT_TOKEN);
 
+bot.on("error", err => {
+       if (err) return console.log(err)
+       })
+
 bot.on("ready", () => {
     bot.user.setActivity(`Afficher l'aide : ${prefix}aide`, {type: 'STREAMING', url: 'https://twitch.tv/nicoo_off'});
     console.log(`Bot connecté.`);
