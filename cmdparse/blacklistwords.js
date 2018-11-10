@@ -4,10 +4,6 @@ const blacklistwords = [
     'biatch', 'bitch', 'ass', 'dick', 'bouffon', 'bougnoul', 'bâtard', 'branleur', 'brise-burnes', 'casse couille', 'chiennasse',
     'chinetoque', 'fils de bâtard', 'ferme ta gueule', 'enfoiré', 'enfant de pute', 'enfant de putain', 'emmerdeur', 'ducon', 'fiotte',
     'garce', 'gouine', 'mange merde', 'salop', 'salope', 'va te faire enculer']
-
-function flash(msg, delay = 1500) {
-    setTimeout(() => msg.delete(), delay);
-  };
   
 module.exports = class wordsblacklist {
 
