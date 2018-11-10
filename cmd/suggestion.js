@@ -17,6 +17,8 @@ module.exports.run = async (Discord, bot, prefix, args, msg, flash, créateurbot
             await message.react("🤷")
             await message.react("❌")
         })
-        msg.reply(`Suggestion envoyée dans ${suggestionchannel} !`).then(flash)
+        msg.reply(`Suggestion envoyée dans ${suggestionchannel} !`).then(message => {
+        message.delete(1500)
+        })
     }
 };
