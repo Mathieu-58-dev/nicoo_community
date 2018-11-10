@@ -1,7 +1,7 @@
 const blacklistwords = [
     'ntm', 'fdp', 'tg', 'ta mère la pute', 'pd', 'fils de pute', 'sale chien', 'sale pute', 'pute', 'ta gueule', 'nique tes morts',
     'ta madre', 'enculé', 'encule tes morts', 'encule', 'garage à bite', 'abruti','va te faire mettre', 'nique ta race', 'negre',
-    'biatch', 'bitch', 'ass', 'dick', 'bouffon', 'bougnoul', 'bâtard', 'branleur', 'brise-burnes', 'casse couille', 'chiennasse',
+    'biatch', 'bitch', 'dick', 'bouffon', 'bougnoul', 'bâtard', 'branleur', 'brise-burnes', 'casse couille', 'chiennasse',
     'chinetoque', 'fils de bâtard', 'ferme ta gueule', 'enfoiré', 'enfant de pute', 'enfant de putain', 'emmerdeur', 'ducon', 'fiotte',
     'garce', 'gouine', 'mange merde', 'salop', 'salope', 'va te faire enculer']
   
