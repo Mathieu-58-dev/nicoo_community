@@ -83,9 +83,6 @@ setInterval(timedmessages, 86400000)
 bot.on('messageDelete', message => {
 
     if (message.author.bot || message.author.id === '329627630863384586') return;
-
-    const logs = message.guild.channels.get('id', '420321529612730368');
-
     let embed = new Discord.RichEmbed()
     .setColor('01FE5E')
     .setAuthor("Message d'un utilisateur supprimé", message.guild.iconURL)
@@ -94,7 +91,7 @@ bot.on('messageDelete', message => {
     .setDescription(`**Infos sur la personne concernée :** ${message.author.tag} 🆔 : ${message.author.id}`)
     .setThumbnail(message.author.displayAvatarURL)
 
-    logs.send(embed);
+    bot.channels.get('420321529612730368').send(embed)
 });
 
 bot.on('messageUpdate', function(oldmsg, newmsg) {
@@ -141,10 +138,7 @@ bot.on('guildMemberRemove', member => {
 });
 
 bot.on('error', err => {
-    if (err) {
-        console.log(err)
-        bot.users.get('329627630863384586').send(`Erreur survenue :\n\n${err}`)
-    }
+        bot.users.get('329627630863384586').send(`Erreur survenue :\n\n${err.message}`)
 });
 
 bot.login(process.env.BOT_TOKEN);
