@@ -103,7 +103,6 @@ bot.on("guildMemberAdd", member => {
     let channel = member.guild.channels.get("414468712754577428");
     channel.send (`:wave: Bienvenue ${member} sur le serveur de ${member.guild.name} ! :tada: **Membre n°${member.guild.memberCount}** :tada:\n\nAvant de commencer à utiliser le serveur, je t'invite à bien le comprendre en lisant ${regles} !` + "```\n```");
     let bienvenue = new Discord.RichEmbed()
-    .setAuthor(member.user.username, member.user.displayAvatarURL)
     .setColor("0xf4e541")
     .setThumbnail(member.user.displayAvatarURL)
     .setTitle(`Un membre à rejoint le serveur`)
@@ -116,7 +115,6 @@ bot.on("guildMemberAdd", member => {
 bot.on('guildMemberRemove', member => {
     let logsremove = member.guild.channels.get("420321529612730368");
     let remove = new Discord.RichEmbed()
-    .setAuthor(member.user.username, member.user.displayAvatarURL)
     .setColor("0xf4e541")
     .setThumbnail(member.user.displayAvatarURL)
     .setTitle(`Un membre est parti du serveur`)
@@ -131,10 +129,6 @@ bot.on('error', err => {
 });
 
 bot.login(process.env.BOT_TOKEN);
-
-bot.on("error", err => {
-       if (err) return console.log(err)
-       })
 
 bot.on("ready", () => {
     bot.user.setActivity(`Afficher l'aide : ${prefix}aide`, {type: 'STREAMING', url: 'https://twitch.tv/nicoo_off'});
