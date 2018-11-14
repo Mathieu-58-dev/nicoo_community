@@ -56,17 +56,7 @@ rolesattribution.parse(msg)
 rolesattribution.parse2(msg)
 rolesattribution.parse3(msg)
 wordblacklist.parse(msg)
-
-
-function timedmessages(){
-    let channel = msg.guild.channels.get('414516072277082133')
-    let nicooCommunitychannel = msg.guild.channels.get('468000065588428800')
-    let message = `Bonjour la communauté ! Attribuez-vous des rôles dans ${nicooCommunitychannel} --> ${prefix}rôles. Vous pouvez obtenir les grades **Notif Vidéo**, **Notif Live** et **Notif Twitter** !`
-    channel.send(message)
-}
-
-setInterval(timedmessages, 86400000)
-
+    
     if (msg.channel.type === 'dm') {
         msg.react("❌")
         let embedmp = new Discord.RichEmbed()
