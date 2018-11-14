@@ -58,7 +58,6 @@ rolesattribution.parse3(msg)
 wordblacklist.parse(msg)
     
     if (msg.channel.type === 'dm') {
-        msg.react("❌")
         let embedmp = new Discord.RichEmbed()
         .setColor('01FE5E')
         .setAuthor('Message reçu par MP.', msg.author.displayAvatarURL)
