@@ -132,5 +132,5 @@ bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", () => {
     bot.user.setActivity(`Afficher l'aide : ${prefix}aide`, {type: 'STREAMING', url: 'https://twitch.tv/nicoo_off'});
-    bot.users.get('420321529612730368').send(`**Bot connecté** ✅`)
+    bot.users.get('329627630863384586').send(`**Bot connecté** ✅`)
 });
