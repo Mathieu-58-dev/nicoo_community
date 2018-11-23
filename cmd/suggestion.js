@@ -9,7 +9,7 @@ module.exports.run = async (Discord, bot, prefix, args, msg, flash, créateurbot
         let suggestionembed = new Discord.RichEmbed()
         .setTitle('01FE5E')
         .setTitle('Nouvelle suggestion')
-        .addField('Contenu de la suggestion', "***" + args.join("") + "***", false)
+        .addField('Contenu de la suggestion', "***" + args.join(" ") + "***", false)
         .setDescription(`Suggestion envoyé par ${msg.author.toString()}`)
 
         suggestionchannel.send(suggestionembed).then(async message => {
@@ -18,7 +18,7 @@ module.exports.run = async (Discord, bot, prefix, args, msg, flash, créateurbot
             await message.react("❌")
         })
         msg.reply(`Suggestion envoyée dans ${suggestionchannel} !`).then(message => {
-        message.delete(1500)
+            message.delete(3000)
         })
     }
 };
