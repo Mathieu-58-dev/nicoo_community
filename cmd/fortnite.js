@@ -1,5 +1,5 @@
 const Client = require('fortnite');
-const fortnite = new Client('956e064e-f253-404d-9873-a7625387abbb'); //process.env.STATS_FTN
+const fortnite = new Client(process.env.STATS_FTN);
 
 module.exports.run = async (Discord, bot, prefix, args, msg, créateurbot) => {
     var pl = ["pc", "psn", "ps", "ps4", "xbox", "xbl"]
