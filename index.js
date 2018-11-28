@@ -2,14 +2,12 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const fs = require('fs');
-const Client = require('fortnite');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const config = require('./json/config.json');
 const rolesattribution = require('./cmdparse/attribution');
 const wordblacklist = require('./cmdparse/blacklistwords');
 const prefix = config.prefix;
 const créateurbot = config.créateur;
-const fortnite = new Client(process.env.STATS_FTN);
 
 fs.readdir("./cmd/", (err, files) => {
     if (err) console.log(err);
@@ -29,10 +27,6 @@ fs.readdir("./cmd/", (err, files) => {
     });
 });
 
-function flash(msg, delay = 1500) {
-  setTimeout(() => msg.delete(), delay);
-};
-
 bot.on("message", async msg => {
     if (msg.author.bot) return;
 
@@ -43,7 +37,7 @@ bot.on("message", async msg => {
     const command = args.shift().toLowerCase();
 
     let cmd = bot.commands.get(command + ".js")
-    if (cmd) cmd.run(Discord, bot, prefix, args, msg, flash, créateurbot, fortnite)
+    if (cmd) cmd.run(Discord, bot, prefix, args, msg, créateurbot)
 });
 
 bot.on('message', msg => {
@@ -55,8 +49,9 @@ if (msg.author.bot) return;
 rolesattribution.parse(msg)
 rolesattribution.parse2(msg)
 rolesattribution.parse3(msg)
+rolesattribution.parse4(msg)
 wordblacklist.parse(msg)
-    
+
     if (msg.channel.type === 'dm') {
         let embedmp = new Discord.RichEmbed()
         .setColor('01FE5E')
@@ -72,6 +67,7 @@ wordblacklist.parse(msg)
 bot.on('messageDelete', message => {
 
     if (message.author.bot || message.author.id === '329627630863384586') return;
+
     let embed = new Discord.RichEmbed()
     .setColor('01FE5E')
     .setAuthor("Message d'un utilisateur supprimé", message.guild.iconURL)
@@ -109,7 +105,8 @@ bot.on("guildMemberAdd", member => {
     .setDescription(`Nom : **${member.user.tag}** 🆔 : **${member.user.id}**\n${member.user.toString()}`)
     .setFooter("Date :")
     .setTimestamp(new Date())
-    logs.send(bienvenue)
+
+    bot.channels.get('420321529612730368').send(bienvenue)
 });
 
 bot.on('guildMemberRemove', member => {
@@ -121,7 +118,8 @@ bot.on('guildMemberRemove', member => {
     .setDescription(`Nom : **${member.user.tag}** 🆔 : **${member.user.id}**`)
     .setFooter("Date :")
     .setTimestamp(new Date())
-    logsremove.send(remove)
+
+    bot.channels.get('420321529612730368').send(remove)
 });
 
 bot.on('error', err => {
