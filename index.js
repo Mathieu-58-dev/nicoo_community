@@ -126,7 +126,7 @@ bot.on('guildMemberRemove', member => {
     bot.channels.get('420321529612730368').send(remove)
 });
 
-bot.login(config.token); //process.env.BOT_TOKEN
+bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready", () => {
     bot.user.setActivity(`Afficher l'aide : ${prefix}aide`, {type: 'STREAMING', url: 'https://twitch.tv/nicoo_off'});
