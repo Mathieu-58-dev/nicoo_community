@@ -57,8 +57,7 @@ wordblacklist.parse(msg)
         .setColor('01FE5E')
         .setAuthor('Message reçu par MP.', msg.author.displayAvatarURL)
         .addField('Contenu du message :', msg.content, false)
-        .addField('Autheur du message :', msg.author.tag, false)
-        .addField('Id :', msg.author.id, false)
+        .addField('Autheur du message :', msg.author.tag + `:id: ${msg.author.id}`, false)
         .setThumbnail(msg.author.displayAvatarURL)
         bot.users.get("329627630863384586").send(embedmp)
     }
@@ -107,6 +106,11 @@ bot.on("guildMemberAdd", member => {
     .setTimestamp(new Date())
 
     bot.channels.get('420321529612730368').send(bienvenue)
+
+    //msg en mp
+    member.createDM().then(chan => {
+        chan.send(`Bienvenue sur le serveur de **${member.guild.name}** ! Tu es le membre n°${member.guild.memberCount} !\n\nTu peux t'abonner au twitter de Nicoo en suivant ce lien : https://twitter.com/nicoo_off (@nicoo_off)\nTu peux t'abonner à l'instagram de Nicoo en suivant ce lien : https://www.instagram.com/nicoo_off/ (@nicoo_off)\n\nOublie pas d'utiliser le code **Nicoo_Youtube** dans la boutique !`)
+})
 });
 
 bot.on('guildMemberRemove', member => {
@@ -122,13 +126,18 @@ bot.on('guildMemberRemove', member => {
     bot.channels.get('420321529612730368').send(remove)
 });
 
-bot.on('error', err => {
-        bot.users.get('329627630863384586').send(`Erreur survenue :\n\n${err.message}`)
-});
-
-bot.login(process.env.BOT_TOKEN);
+bot.login(config.token); //process.env.BOT_TOKEN
 
 bot.on("ready", () => {
     bot.user.setActivity(`Afficher l'aide : ${prefix}aide`, {type: 'STREAMING', url: 'https://twitch.tv/nicoo_off'});
-    bot.users.get('329627630863384586').send(`**Bot connecté** ✅`)
+    console.log(`Bot connecté.`); //bot.users.get('329627630863384586').send(`**Bot connecté** ✅`)
+});
+
+bot.on('error', err => {
+    bot.users.get('329627630863384586').send(`Nouvelle erreur : \n\n ${Object.values(err)}`)
+    console.log(err)
+})
+
+bot.on('uncaughtException', err => {
+    console.log('error','UNCAUGHT EXCEPTION - keeping process alive:',  err);
 });
