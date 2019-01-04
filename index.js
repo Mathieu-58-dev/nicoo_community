@@ -109,7 +109,7 @@ bot.on("guildMemberAdd", member => {
 
     //msg en mp
     member.createDM().then(chan => {
-        chan.send(`Bienvenue sur le serveur de **${member.guild.name}** ! Tu es le membre n°${member.guild.memberCount} !\n\nTu peux t'abonner au twitter de Nicoo en suivant ce lien : https://twitter.com/nicoo_off (@nicoo_off)\nTu peux t'abonner à l'instagram de Nicoo en suivant ce lien : https://www.instagram.com/nicoo_off/ (@nicoo_off)\n\nOublie pas d'utiliser le code **Nicoo_Youtube** dans la boutique !`)
+        chan.send(`Bienvenue sur le serveur de **${member.guild.name}** ! Tu es le membre n°${member.guild.memberCount} !\n\nTu peux t'abonner au twitter de Nicoo en suivant ce lien : https://twitter.com/nicoo_off (@nicoo_off)\nTu peux t'abonner à l'instagram de Nicoo en suivant ce lien : https://www.instagram.com/nicoo_off/ (@nicoo_off)\n\nOublie pas d'utiliser le code **Nicoo_Youtube** dans la boutique Fortnite !`)
 })
 });
 
